@@ -8,21 +8,7 @@ return function(config) -- overrides `require("null-ls").setup(config)`
 		-- Set a formatter
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier,
-		null_ls.builtins.formatting.black,
-		null_ls.builtins.diagnostics.flake8,
+		-- null_ls.builtins.formatting.black,
 	}
-	-- set up null-ls's on_attach function
-	-- NOTE: You can remove this on attach function to disable format on save
-	config.on_attach = function(client)
-		if client.resolved_capabilities.document_formatting then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				desc = "Auto format before save",
-				pattern = "<buffer>",
-				callback = function()
-					vim.lsp.buf.formatting_sync(nil, 10000)
-				end,
-			})
-		end
-	end
 	return config -- return final config table to use in require("null-ls").setup(config)
 end

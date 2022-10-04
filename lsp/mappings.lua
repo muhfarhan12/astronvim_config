@@ -1,5 +1,5 @@
 return {
-  n = {
-    ["<leader>lf"] = false,
-  },
+	n = {
+		-- ["<leader>lf"] = false,
+	},
 }
